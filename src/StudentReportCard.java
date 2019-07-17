@@ -8,7 +8,6 @@ public class StudentReportCard {
         Scanner scanner = new Scanner(System.in);  // Create a Scanner object
         System.out.println("Enter student name");
         String student1 = scanner.nextLine();  // Read user input  //nextLine vs next
-        System.out.println("student name is: " + student1);
 
         System.out.println("Marks in English ?");
         int marksInEnglish = scanner.nextInt();
@@ -39,7 +38,6 @@ public class StudentReportCard {
         scanner = new Scanner(System.in);
         System.out.println("Enter student name");
         String student2 = scanner.nextLine();  // Read user input  //nextLine vs next
-        System.out.println("student name is: " + student2);
 
         System.out.println("Marks in English ?");
         int marksInEnglish2 = scanner.nextInt();

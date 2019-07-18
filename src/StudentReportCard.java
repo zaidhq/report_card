@@ -4,66 +4,73 @@ public class StudentReportCard {
     public static void main(String[] args) {
 
         StudentReportCard studentReportCard = new StudentReportCard();
+        while (true) {
+            Scanner scanner = new Scanner(System.in);  // Create a Scanner object
+            System.out.println("Enter student name");
+            String student1 = scanner.nextLine();  // Read user input  //nextLine vs next
 
-        Scanner scanner = new Scanner(System.in);  // Create a Scanner object
-        System.out.println("Enter student name");
-        String student1 = scanner.nextLine();  // Read user input  //nextLine vs next
+            System.out.println("Marks in English ?");
+            int marksInEnglish = scanner.nextInt();
+            System.out.println("Marks in Hindi ?");
+            int marksInHindi = scanner.nextInt();
+            System.out.println("Marks in maths ?");
+            int marksInMaths = scanner.nextInt();
+            int total = marksInEnglish + marksInHindi + marksInMaths;
+            int percentage = ((marksInEnglish + marksInHindi + marksInMaths) * 100) / 300;
 
-        System.out.println("Marks in English ?");
-        int marksInEnglish = scanner.nextInt();
-        System.out.println("Marks in Hindi ?");
-        int marksInHindi = scanner.nextInt();
-        System.out.println("Marks in maths ?");
-        int marksInMaths = scanner.nextInt();
-        int total = marksInEnglish + marksInHindi + marksInMaths;
-        int percentage = ((marksInEnglish + marksInHindi + marksInMaths) * 100) / 300;
+            System.out.println(student1);
+            System.out.println("Subject    Marks   Grades");
+            System.out.println("English    " + marksInEnglish + "      " + studentReportCard.getGrade(marksInEnglish));
+            System.out.println("Hindi      " + marksInHindi + "      " + studentReportCard.getGrade(marksInHindi));
+            System.out.println("Maths      " + marksInMaths + "      " + studentReportCard.getGrade(marksInMaths));
+            System.out.println("Total      " + total + "      " + studentReportCard.getGrade(percentage));
+            if (marksInEnglish < 40) {
+                System.out.println("Fail");
+            } else if (marksInHindi < 40) {
+                System.out.println("Fail");
+            } else if (marksInMaths < 40) {
+                System.out.println("Fail");
+            } else {
+                System.out.println("Pass");
+            }
+            System.out.println("do you want to continue");//taking user approval to continue
+            String isContinue = scanner.next();
 
-        System.out.println(student1);
-        System.out.println("Subject    Marks   Grades");
-        System.out.println("English    " + marksInEnglish + "      " + studentReportCard.getGrade(marksInEnglish));
-        System.out.println("Hindi      " + marksInHindi + "      " + studentReportCard.getGrade(marksInHindi));
-        System.out.println("Maths      " + marksInMaths + "      " + studentReportCard.getGrade(marksInMaths));
-        System.out.println("Total      " + total + "      " + studentReportCard.getGrade(percentage));
-        if (marksInEnglish < 40) {
-            System.out.println("Fail");
-        } else if (marksInHindi < 40) {
-            System.out.println("Fail");
-        } else if (marksInMaths < 40) {
-            System.out.println("Fail");
-        } else {
-            System.out.println("Pass");
+            if (isContinue.equals("yes")) {
 
+                scanner = new Scanner(System.in);
+                System.out.println("Enter student name");
+                student1 = scanner.nextLine();
 
-        }
-        scanner = new Scanner(System.in);
-        System.out.println("Enter student name");
-        String student2 = scanner.nextLine();  // Read user input  //nextLine vs next
+                System.out.println("Marks in English ?");
+                marksInEnglish = scanner.nextInt();
+                System.out.println("Marks in Hindi ?");
+                marksInHindi = scanner.nextInt();
+                System.out.println("Marks in maths ?");
+                marksInMaths = scanner.nextInt();
+                total = marksInEnglish + marksInHindi + marksInMaths;
+                percentage = ((marksInEnglish + marksInHindi + marksInMaths) * 100) / 300;
 
-        System.out.println("Marks in English ?");
-        int marksInEnglish2 = scanner.nextInt();
-        System.out.println("Marks in Hindi ?");
-        int marksInHindi2 = scanner.nextInt();
-        System.out.println("Marks in maths ?");
-        int marksInMaths2 = scanner.nextInt();
-        int total2 = marksInEnglish2 + marksInHindi2 + marksInMaths2;
-        int percentage2 = ((marksInEnglish2 + marksInHindi2 + marksInMaths2) * 100) / 300;
+                System.out.println(student1);
+                System.out.println("Subject    Marks   Grades");
+                System.out.println("English    " + marksInEnglish + "      " + studentReportCard.getGrade(marksInEnglish));
+                System.out.println("Hindi      " + marksInHindi + "      " + studentReportCard.getGrade(marksInHindi));
+                System.out.println("Maths      " + marksInMaths + "      " + studentReportCard.getGrade(marksInMaths));
+                System.out.println("Total      " + total + "      " + studentReportCard.getGrade(percentage));
+                if (marksInEnglish < 40) {
+                    System.out.println("Fail");
+                } else if (marksInHindi < 40) {
+                    System.out.println("Fail");
+                } else if (marksInMaths < 40) {
+                    System.out.println("Fail");
+                } else {
+                    System.out.println("Pass");
+                }
+            } else {
+                System.out.println("Thank you");
+                break;
 
-        System.out.println(student2);
-        System.out.println("Subject    Marks   Grades");
-        System.out.println("English    " + marksInEnglish2 + "      " + studentReportCard.getGrade(marksInEnglish2));
-        System.out.println("Hindi      " + marksInHindi2 + "      " + studentReportCard.getGrade(marksInHindi2));
-        System.out.println("Maths      " + marksInMaths2 + "      " + studentReportCard.getGrade(marksInMaths2));
-        System.out.println("Total      " + total2 + "      " + studentReportCard.getGrade(percentage2));
-        if (marksInEnglish2 < 40) {
-            System.out.println("Fail");
-        } else if (marksInHindi2 < 40) {
-            System.out.println("Fail");
-        } else if (marksInMaths2 < 40) {
-            System.out.println("Fail");
-        } else {
-            System.out.println("Pass");
-
-
+            }
         }
     }
 
@@ -88,4 +95,3 @@ public class StudentReportCard {
 
     }
 }
-

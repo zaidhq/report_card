@@ -18,6 +18,7 @@ public class StudentReportCard {
             int total = marksInEnglish + marksInHindi + marksInMaths;
             int percentage = ((marksInEnglish + marksInHindi + marksInMaths) * 100) / 300;
 
+
             System.out.println(student1);
             System.out.println("Subject    Marks   Grades");
             System.out.println("English    " + marksInEnglish + "      " + studentReportCard.getGrade(marksInEnglish));

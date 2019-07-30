@@ -5,22 +5,21 @@ import java.util.Scanner;
 public class StudentReportCard {
     public static void main(String[] args) {
 
-        ArrayList<HashMap<String, Object>> allStudentInfo = new ArrayList<HashMap<String, Object>>();
+        ArrayList<StudentInfo> allStudentInfo = new ArrayList<StudentInfo>();
         StudentReportCard studentReportCard = new StudentReportCard();
 
         while (true) {
-            HashMap<String, Object> studentInfo = new HashMap<String, Object>();
-
+            StudentInfo studentInfo= new StudentInfo();
             Scanner scanner = new Scanner(System.in);  // Create a Scanner object
             System.out.println("Enter student name");
-            studentInfo.put("name", scanner.nextLine());
+            studentInfo.setName(scanner.nextLine());
 
             System.out.println("Marks in English ?");
-            studentInfo.put("marksInEnglish", scanner.nextInt());
+            studentInfo.setMarksInEnglish(scanner.nextInt());
             System.out.println("Marks in Hindi ?");
-            studentInfo.put("marksInHindi", scanner.nextInt());
+            studentInfo.setMarksInHindi(scanner.nextInt());
             System.out.println("Marks in maths ?");
-            studentInfo.put("marksInMaths", scanner.nextInt());
+            studentInfo.setMarksInMaths(scanner.nextInt());
             allStudentInfo.add(studentInfo);
             System.out.println("type \"yes\" to continue");
             String isContinue = scanner.next();
@@ -28,22 +27,22 @@ public class StudentReportCard {
                 break;
 
         }
-        for (HashMap<String, Object> singleStudentInfo : allStudentInfo) {
-            int total = Integer.parseInt(singleStudentInfo.get("marksInEnglish").toString()) + Integer.parseInt(singleStudentInfo.get("marksInHindi").toString()) + Integer.parseInt(singleStudentInfo.get("marksInMaths").toString());
+        for (StudentInfo singleStudentInfo : allStudentInfo) {
+            int total = singleStudentInfo.getMarksInEnglish() + singleStudentInfo.getMarksInHindi() + singleStudentInfo.getMarksInMaths();
             int percentage = (total * 100) / 300;
-            System.out.println(singleStudentInfo.get("name"));
+            System.out.println(singleStudentInfo.getName());
             System.out.println("Subject    Marks   Grades");
-            System.out.println("English    " + singleStudentInfo.get("marksInEnglish") + "      " + studentReportCard.getGrade(Integer.parseInt(singleStudentInfo.get("marksInEnglish").toString())));
-            System.out.println("Hindi      " + singleStudentInfo.get("marksInHindi") + "      " + studentReportCard.getGrade(Integer.parseInt(singleStudentInfo.get("marksInHindi").toString())));
-            System.out.println("Maths      " + singleStudentInfo.get("marksInMaths") + "      " + studentReportCard.getGrade(Integer.parseInt(singleStudentInfo.get("marksInMaths").toString())));
+            System.out.println("English    " + singleStudentInfo.getMarksInEnglish() + "      " + studentReportCard.getGrade((singleStudentInfo.getMarksInEnglish())));
+            System.out.println("Hindi      " + singleStudentInfo.getMarksInHindi() + "      " + studentReportCard.getGrade((singleStudentInfo.getMarksInHindi())));
+            System.out.println("Maths      " + singleStudentInfo.getMarksInMaths() + "      " + studentReportCard.getGrade(singleStudentInfo.getMarksInMaths()));
             System.out.println("Total      " + total + "      " + studentReportCard.getGrade(percentage));
 
 
-            if (Integer.parseInt(singleStudentInfo.get("marksInEnglish").toString()) < 40) {
+            if (singleStudentInfo.getMarksInEnglish() < 40) {
                 System.out.println("Fail");
-            } else if (Integer.parseInt(singleStudentInfo.get("marksInHindi").toString()) < 40) {
+            } else if (singleStudentInfo.getMarksInHindi() < 40) {
                 System.out.println("Fail");
-            } else if (Integer.parseInt(singleStudentInfo.get("marksInMaths").toString()) < 40) {
+            } else if (singleStudentInfo.getMarksInMaths() < 40) {
                 System.out.println("Fail");
             } else {
                 System.out.println("Pass");
